@@ -1,5 +1,5 @@
 /*
- *    Copyright 2015-2023 the original author or authors.
+ *    Copyright 2015-2026 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -87,16 +87,16 @@ public class MyBatisParamDirective implements TemplateDirectiveModel {
       Object value;
       if (valueObject == null) {
         value = null;
-      } else if (valueObject instanceof WrapperTemplateModel) {
-        value = ((WrapperTemplateModel) valueObject).getWrappedObject();
-      } else if (valueObject instanceof TemplateScalarModel) {
-        value = ((TemplateScalarModel) valueObject).getAsString();
-      } else if (valueObject instanceof TemplateNumberModel) {
-        value = ((TemplateNumberModel) valueObject).getAsNumber();
-      } else if (valueObject instanceof TemplateDateModel) {
-        value = ((TemplateDateModel) valueObject).getAsDate();
-      } else if (valueObject instanceof TemplateBooleanModel) {
-        value = ((TemplateBooleanModel) valueObject).getAsBoolean();
+      } else if (valueObject instanceof WrapperTemplateModel wrapperTemplateModel) {
+        value = wrapperTemplateModel.getWrappedObject();
+      } else if (valueObject instanceof TemplateScalarModel templateScalarModel) {
+        value = templateScalarModel.getAsString();
+      } else if (valueObject instanceof TemplateNumberModel templateNumberModel) {
+        value = templateNumberModel.getAsNumber();
+      } else if (valueObject instanceof TemplateDateModel templateDateModel) {
+        value = templateDateModel.getAsDate();
+      } else if (valueObject instanceof TemplateBooleanModel templateBooleanModel) {
+        value = templateBooleanModel.getAsBoolean();
       } else {
         throw new UnsupportedOperationException(
             String.format("Type %s is not supported yet in this context.", valueObject.getClass().getSimpleName()));
